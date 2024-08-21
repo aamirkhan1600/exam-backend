@@ -17,7 +17,9 @@ mongoose.connect(`mongodb+srv://${username}:${password}@clusterexam.38jlf.mongod
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log('MongoDB connection error:', err));
 
-  app.get('/', async (req, res) => {
+
+
+  app.get('/', function(req, res){
     res.send("<h1>Hi</h1>");
   });
 
