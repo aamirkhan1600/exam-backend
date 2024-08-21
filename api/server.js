@@ -1,5 +1,5 @@
 const express = require('express');
-///const cors = require('cors'); // Import cors
+//const cors = require('cors'); // Import cors
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -18,7 +18,7 @@ mongoose.connect(`mongodb+srv://${username}:${password}@clusterexam.38jlf.mongod
   .catch(err => console.log('MongoDB connection error:', err));
 
 
-  app.get('/', async (req, res){
+  app.get('/', async (req, res) => {
     res.send("<h1>Hi</h1>");
   });
 
