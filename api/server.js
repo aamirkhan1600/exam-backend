@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors'); // Import cors
+///const cors = require('cors'); // Import cors
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -11,7 +11,7 @@ const username = encodeURIComponent("aamirkhan");
 const password = encodeURIComponent("Aamir@123");
 // Middleware
 app.use(express.json());
-app.use(cors()); // Enable CORS
+//app.use(cors()); // Enable CORS
 
 mongoose.connect(`mongodb+srv://${username}:${password}@clusterexam.38jlf.mongodb.net/?retryWrites=true&w=majority&appName=ClusterExam`)
   .then(() => console.log('MongoDB connected'))
