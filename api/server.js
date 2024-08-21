@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const User = require('./models/User');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const username = encodeURIComponent("aamirkhan");
 const password = encodeURIComponent("Aamir@123");
 // Middleware
