@@ -18,9 +18,7 @@ mongoose.connect(`mongodb+srv://${username}:${password}@clusterexam.38jlf.mongod
   .catch(err => console.log('MongoDB connection error:', err));
 
 
-  app.get('*', (req, res) => {
-    res.send('Hello from the API!');
-  });
+ 
 
 // Register Route
 app.post('/api/register', async (req, res) => {
