@@ -85,6 +85,42 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
+let users = [];
+
+// Admin Signup Route
+app.post('/api/admin/signup', (req, res) => {
+    const { email, password, name } = req.body;
+
+    // Check if user already exists
+    const userExists = users.find(user => user.email === email);
+    if (userExists) return res.status(400).send('User already exists.');
+
+    // Hash password and save user
+    const hashedPassword = bcrypt.hashSync(password, 8);
+    const newUser = { email, password: hashedPassword, name };
+    users.push(newUser);
+
+    res.status(200).send('Signup successful!');
+});
+
+// Admin Login Route
+app.post('/api/admin/login', (req, res) => {
+    const { email, password } = req.body;
+
+    // Check if user exists
+    const user = users.find(user => user.email === email);
+    if (!user) return res.status(400).send('User not found.');
+
+    // Check password
+    const isPasswordValid = bcrypt.compareSync(password, user.password);
+    if (!isPasswordValid) return res.status(400).send('Invalid password.');
+
+    // Generate token
+    const token = jwt.sign({ email: user.email }, SECRET_KEY, { expiresIn: '1h' });
+
+    res.status(200).json({ token });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
