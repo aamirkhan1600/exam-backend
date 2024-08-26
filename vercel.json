@@ -8,7 +8,7 @@
     ],
     "functions": {
       "api/server.js": {
-        "maxDuration": 30,
+        "maxDuration": 40,
         "memory": 1024 
       }
     }
