@@ -1,15 +1,15 @@
 {
-    "version": 2,
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/api"
-      }
-    ],
-    "functions": {
-      "api/server.js": {
-        "maxDuration": 40,
-        "memory": 1024 
-      }
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/server.js"
+    }
+  ],
+  "functions": {
+    "api/server.js": {
+      "maxDuration": 40,
+      "memory": 1024
     }
   }
+}
