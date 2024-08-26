@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('./models/User');
+const User = require('../models/User');
 
 const app = express();
 const PORT = 3000;
@@ -16,8 +16,6 @@ app.use(express.json());
 mongoose.connect(`mongodb+srv://${username}:${password}@clusterexam.38jlf.mongodb.net/?retryWrites=true&w=majority&appName=ClusterExam`)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log('MongoDB connection error:', err));
-
-
  
 
 // Register Route
